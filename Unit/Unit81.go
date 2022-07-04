@@ -34,5 +34,6 @@ func Shownode(p *Node) { //遍历
 		p = p.Next //移动指针
 		fmt.Println(p)
 		fmt.Println(*p)
+		fmt.Println(*p)
 	}
 }
