@@ -5,13 +5,13 @@ import "fmt"
 //Go语言结构体定义
 func main() {
 	//基本的实例化形式
-	var LiRui People
+	var LiRui people
 	LiRui.name = "李锐"
 	LiRui.age = "26"
 	fmt.Println(LiRui)
 
 	//创建指针类型的结构体
-	Leo := new(People)
+	Leo := new(people)
 	Leo.name = "里奥"
 	Leo.age = "35"
 	Leo.wife.name = "伊丽莎白"
@@ -19,7 +19,7 @@ func main() {
 	fmt.Println(Leo)
 
 	//取结构体的地址实例化
-	Leo = &People{}
+	Leo = &people{}
 	Leo.name = "里奥"
 	Leo.age = "35"
 	Leo.wife.name = "伊丽莎白"
@@ -49,37 +49,35 @@ func main() {
 	//    第 9 行，对结构体取地址实例化。
 	//    第 10～12 行，初始化成员字段。
 
-	wife := new(Wife)
+	wife := new(wife)
 	wife.name = "阿尔托莉雅"
-	child := new(Child)
+	child := new(child)
 	child.name = "莫德雷德"
 	Leo = newPeople("里奥", "35", "男", *wife, *child)
 	fmt.Println(Leo)
-
 }
 
-type People struct {
+type people struct {
 	name                 string
 	age                  string
 	gender               string
 	address, city, phone string
-	child                Child
-	wife                 Wife
+	child                child
+	wife                 wife
 }
-
-type Child struct {
+type child struct {
 	name   string
 	age    string
 	gender string
 }
-type Wife struct {
+type wife struct {
 	name   string
 	age    string
 	gender string
 }
 
-func newPeople(name string, age string, gender string, wife2 Wife, child2 Child) *People {
-	return &People{
+func newPeople(name string, age string, gender string, wife2 wife, child2 child) *people {
+	return &people{
 		name:   name,
 		age:    age,
 		gender: gender,
