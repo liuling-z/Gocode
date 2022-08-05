@@ -19,6 +19,17 @@ func main() {
 	node2.Data = 3
 	node1.Next = node2
 	Shownode(head)
+
+	head = new(Node)
+	head.Data = 0
+	var tail *Node
+	tail = head //tail用于记录头结点的地址，刚开始tail的的指针指向头结点
+	for i := 1; i < 10; i++ {
+		var node = Node{Data: i}
+		node.Next = tail //将新插入的node的next指向头结点
+		tail = &node     //重新赋值头结点
+	}
+	Shownode(tail) //遍历结果
 }
 
 //使用 Struct 定义单链表
